@@ -1,3 +1,7 @@
+{% extends 'todo_app/main.html' %}
+{% block content %}
+{% endblock content %}
+
 {% if request.user.is_authenticated %}
 <p>{{request.user}}</p>
 <form method="POST" action="{% url 'logout' %}">
@@ -14,8 +18,8 @@
 <a href="{% url 'task-create' %}">Add New Task</a>
 
 <form method="GET">
-  <input type="text" name="Search-bar">
-  <input type="text" name="Search">
+  <input type="text" name="Search-area" value="{{search_input}}">
+  <input type="submit" value="Search">
 </form>
 
 <table>
@@ -27,7 +31,6 @@
   {% for task in tasks %}
   <tr>
     <td>{{task.title}}</td>
-    <td><a href="{% url 'task' task.id %}">View</a></td>
     <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
     <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
   </tr>
