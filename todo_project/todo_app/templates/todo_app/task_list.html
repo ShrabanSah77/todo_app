@@ -13,6 +13,11 @@
 <h1>My to do list {{color}}</h1>
 <a href="{% url 'task-create' %}">Add New Task</a>
 
+<form method="GET">
+  <input type="text" name="Search-bar">
+  <input type="text" name="Search">
+</form>
+
 <table>
   <tr>
     <th>Items</th>
